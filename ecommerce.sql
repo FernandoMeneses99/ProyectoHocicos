@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-01-2025 a las 03:12:56
+-- Tiempo de generación: 09-01-2025 a las 20:53:54
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -126,7 +126,8 @@ INSERT INTO `productos` (`id`, `nombre`, `descripcion`, `precio`, `cantidad`, `v
 (4, 'Crocantes sabor conejo', 'Crocantes sabor artificial a conejo', 6290.00, 98, 0, '20250109025823.jpg', 1, 7),
 (5, 'Premios sabor pollo', 'Punta de ala de pollo', 15000.00, 25, 0, '20250109025717.jpg', 1, 1),
 (6, 'Cabano sabor pollo', 'Cabano para Perros', 9390.00, 100, 0, '20250109025504.jpg', 1, 7),
-(7, 'Galletas Sabor Manzana y Mango', 'Galletas de Sabores para Perros', 7890.00, 153, 4, '20250109025413.jpg', 1, 7);
+(7, 'Galletas Sabor Manzana y Mango', 'Galletas de Sabores para Perros', 7890.00, 153, 4, '20250109025413.jpg', 1, 7),
+(8, 'Prueba', '', 1.00, 3, 0, '20250109035649.jpg', 1, 4);
 
 -- --------------------------------------------------------
 
@@ -154,7 +155,6 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id`, `correo`, `nombre`, `apellido`, `clave`, `direccion`, `tipo`, `perfil`, `verify`, `token`, `estado`) VALUES
 (1, 'fernandomenesesda@gmail.com', 'admin', 'Omar Meneses', '$2y$10$NqGPbZe2k0LlJ9/rh92kn.3OdKxQP4PfzCMUYrLJ8PtYqjv.Bo78O', 'Cr 81j # 57d 02 sur', 1, NULL, 0, NULL, 1),
-(11, 'fernandomenesesda@gmail.com', 'Omar Fernando', 'Meneses Daza', '$2y$10$NqGPbZe2k0LlJ9/rh92kn.3OdKxQP4PfzCMUYrLJ8PtYqjv.Bo78O', 'Cr 81j # 57d 02 sur', 2, NULL, 0, NULL, 0),
 (13, 'prueba@mail.com', 'Persona de prueba', NULL, '$2y$10$xgS4Squox/M2dOxkgYSs8u1LJTHOKDq/ls9ks/dvfev/J73jUBJoe', NULL, 2, NULL, 0, NULL, 1);
 
 -- --------------------------------------------------------
@@ -260,7 +260,7 @@ ALTER TABLE `detalle_ventas`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
