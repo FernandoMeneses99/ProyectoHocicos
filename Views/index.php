@@ -66,7 +66,7 @@
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6">
                 <div class="banner__pic">
-                    <img src="<?php echo BASE_URL; ?>public/img/banner/banner-1.jpg" alt="">
+                    <img class="centrado" src="<?php echo BASE_URL; ?>public/img/banner/banner-1.jpg" alt="">
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6">

@@ -3434,3 +3434,9 @@ ol {
 		font-size: 24px;
 	}
 }
+.banner__pic {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* si también quieres centrar verticalmente */
+    height: 100%; /* o el alto que tenga el contenedor */
+}

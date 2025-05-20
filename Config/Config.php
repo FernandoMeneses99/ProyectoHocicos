@@ -1,5 +1,5 @@
 <?php
-const BASE_URL = "http://localhost/hocicos/";
+const BASE_URL = "http://localhost:8080/hocicos/";
 const HOST = "localhost";
 const USER = "root";
 const PASS = "";
