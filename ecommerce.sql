@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `ecommerce_categorias`
 --
 
-CREATE TABLE `ecommerce_categorias` (
+CREATE TABLE `categorias` (
   `id` int(11) NOT NULL,
   `categoria` varchar(50) DEFAULT NULL,
   `imagen` varchar(100) DEFAULT NULL,
@@ -40,7 +40,7 @@ CREATE TABLE `ecommerce_categorias` (
 -- Estructura de tabla para la tabla `ecommerce_configuracion`
 --
 
-CREATE TABLE `ecommerce_configuracion` (
+CREATE TABLE `configuracion` (
   `id` int(11) NOT NULL,
   `nombre` varchar(200) DEFAULT NULL,
   `telefono` varchar(50) DEFAULT NULL,
@@ -59,7 +59,7 @@ CREATE TABLE `ecommerce_configuracion` (
 -- Estructura de tabla para la tabla `ecommerce_detalle_ventas`
 --
 
-CREATE TABLE `ecommerce_detalle_ventas` (
+CREATE TABLE `detalle_ventas` (
   `id` int(11) NOT NULL,
   `cantidad` int(11) DEFAULT NULL,
   `precio` decimal(10,2) DEFAULT NULL,
@@ -74,7 +74,7 @@ CREATE TABLE `ecommerce_detalle_ventas` (
 -- Estructura de tabla para la tabla `ecommerce_productos`
 --
 
-CREATE TABLE `ecommerce_productos` (
+CREATE TABLE `productos` (
   `id` int(11) NOT NULL,
   `nombre` varchar(255) DEFAULT NULL,
   `descripcion` text DEFAULT NULL,
@@ -92,7 +92,7 @@ CREATE TABLE `ecommerce_productos` (
 -- Estructura de tabla para la tabla `ecommerce_usuarios`
 --
 
-CREATE TABLE `ecommerce_usuarios` (
+CREATE TABLE `usuarios` (
   `id` int(11) NOT NULL,
   `correo` varchar(150) DEFAULT NULL,
   `nombre` varchar(100) DEFAULT NULL,
@@ -112,7 +112,7 @@ CREATE TABLE `ecommerce_usuarios` (
 -- Estructura de tabla para la tabla `ecommerce_ventas`
 --
 
-CREATE TABLE `ecommerce_ventas` (
+CREATE TABLE `ventas` (
   `id` int(11) NOT NULL,
   `transaccion` varchar(100) DEFAULT NULL,
   `total` decimal(10,2) DEFAULT NULL,
@@ -139,19 +139,19 @@ CREATE TABLE `ecommerce_ventas` (
 --
 -- Indices de la tabla `ecommerce_categorias`
 --
-ALTER TABLE `ecommerce_categorias`
+ALTER TABLE `categorias`
   ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `ecommerce_configuracion`
 --
-ALTER TABLE `ecommerce_configuracion`
+ALTER TABLE `configuracion`
   ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `ecommerce_detalle_ventas`
 --
-ALTER TABLE `ecommerce_detalle_ventas`
+ALTER TABLE `detalle_ventas`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_producto` (`id_producto`),
   ADD KEY `id_venta` (`id_venta`);
@@ -159,20 +159,20 @@ ALTER TABLE `ecommerce_detalle_ventas`
 --
 -- Indices de la tabla `ecommerce_productos`
 --
-ALTER TABLE `ecommerce_productos`
+ALTER TABLE `productos`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_categoria` (`id_categoria`);
 
 --
 -- Indices de la tabla `ecommerce_usuarios`
 --
-ALTER TABLE `ecommerce_usuarios`
+ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `ecommerce_ventas`
 --
-ALTER TABLE `ecommerce_ventas`
+ALTER TABLE `ventas`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_usuario` (`id_usuario`);
 
@@ -183,37 +183,37 @@ ALTER TABLE `ecommerce_ventas`
 --
 -- AUTO_INCREMENT de la tabla `ecommerce_categorias`
 --
-ALTER TABLE `ecommerce_categorias`
+ALTER TABLE `categorias`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `ecommerce_configuracion`
 --
-ALTER TABLE `ecommerce_configuracion`
+ALTER TABLE `configuracion`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `ecommerce_detalle_ventas`
 --
-ALTER TABLE `ecommerce_detalle_ventas`
+ALTER TABLE `detalle_ventas`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `ecommerce_productos`
 --
-ALTER TABLE `ecommerce_productos`
+ALTER TABLE `productos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `ecommerce_usuarios`
 --
-ALTER TABLE `ecommerce_usuarios`
+ALTER TABLE `usuarios`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `ecommerce_ventas`
 --
-ALTER TABLE `ecommerce_ventas`
+ALTER TABLE `ventas`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
@@ -223,21 +223,21 @@ ALTER TABLE `ecommerce_ventas`
 --
 -- Filtros para la tabla `ecommerce_detalle_ventas`
 --
-ALTER TABLE `ecommerce_detalle_ventas`
-  ADD CONSTRAINT `ecommerce_detalle_ventas_ibfk_1` FOREIGN KEY (`id_producto`) REFERENCES `ecommerce_productos` (`id`),
-  ADD CONSTRAINT `ecommerce_detalle_ventas_ibfk_2` FOREIGN KEY (`id_venta`) REFERENCES `ecommerce_ventas` (`id`);
+ALTER TABLE `detalle_ventas`
+  ADD CONSTRAINT `ecommerce_detalle_ventas_ibfk_1` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id`),
+  ADD CONSTRAINT `ecommerce_detalle_ventas_ibfk_2` FOREIGN KEY (`id_venta`) REFERENCES `ventas` (`id`);
 
 --
 -- Filtros para la tabla `ecommerce_productos`
 --
-ALTER TABLE `ecommerce_productos`
-  ADD CONSTRAINT `ecommerce_productos_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `ecommerce_categorias` (`id`);
+ALTER TABLE `productos`
+  ADD CONSTRAINT `ecommerce_productos_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id`);
 
 --
 -- Filtros para la tabla `ecommerce_ventas`
 --
-ALTER TABLE `ecommerce_ventas`
-  ADD CONSTRAINT `ecommerce_ventas_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `ecommerce_usuarios` (`id`);
+ALTER TABLE `ventas`
+  ADD CONSTRAINT `ecommerce_ventas_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
